@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta http-equiv="refresh" content="5"> -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feedback details</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+    <style>
+        *{
+            text-align: center;
+            padding-top: 1%;
+            padding-left: 1%;
+            padding-right: 1%;
+        }
+        h1{
+            color: rgb(248, 4, 53);
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif; 
+        }
+        .table{
+            border-radius: 3px;
+            border-width:3px;
+        }
+        .table-row{
+            background-color: rgb(74, 74, 241);
+        }
+        .row-btn{
+            border-radius: 3px;
+            background-color: rgb(123, 123, 235);
+            text-align: center;
+            color: aliceblue;
+            padding-bottom: 2%;
+            padding-left: 4%;
+            padding-right:4%;
+            padding-top: 2%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Feedback details</h1>
+    <br>
+    {% if messages %}
+    <div class="pop wow fadeInUp" id="pop">
+        {% for message in messages %}
+        <div class="d-flex justify-content-between">
+            <h6{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</h6>
+            <div class="" id="close_feedback"><i class="fa-solid fa-xmark fa-2xl" style="color: #FEA116;"></i></div>
+        </div>
+        {% endfor %}
+    </div>
+  {% endif %}
+    
+    <table class="table table-bordered border-primary">
+        <thead class="table-head">
+          <tr class="table-row">
+            <th scope="col">Name</th>
+            <th scope="col">Contact</th>
+            <th scope="col">Feedback</th>
+            <th scope="col">Status</th>
+          </tr>
+        </thead>
+        <tbody>
+        {% for data in datas %}
+        <form action="verified/{{data.id}}/" method="post">
+          {% csrf_token %}
+            
+          <tr>
+            <td>{{data.fname}}</td>
+            <td> {{data.fnumber}}</td>
+            <td> {{data.feedback}}</td>
+            <td><button type="submit" class="row-btn">Verified</button></td>
+          </tr>
+        </form>
+        {%  empty %}
+        <tr>
+            <td colspan="5">  Seems like all feedbacks are noted successfully ... </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+      </table>
+  
+</body>
+</html>

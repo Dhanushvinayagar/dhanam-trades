@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order page</title>
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&family=Pacifico&display=swap" rel="stylesheet">
+
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="/static/lib/animate/animate.min.css" rel="stylesheet">
+    <link href="/static/lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="/static/lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+      <style>
+
+        html,body{
+          margin: 0;
+        }
+
+        body{
+            background-color: #fff !important;
+            padding-top: 15px;
+        }
+        :root{
+          --primary: #FEA116;
+          --light: #F1F8FF;
+          --dark: #0F172B;
+        }
+
+
+        .logo{
+          max-width: 95px;
+          max-height: 95px;
+        }
+
+        .header .title{
+            color: var(--primary);
+            margin-top: 8px;
+            font-size: 23px;
+            font-weight: 700;
+          }
+
+        .header .address, .header .contact{
+          font-size: 15px;
+          margin: 0;
+        }
+
+        .cus_info{
+          font-size: larger;
+          font-weight: 800;
+          color: black;
+        }
+
+        .btn-primary{
+          background-color: rgb(55, 129, 224);
+          color: black;
+          font-size: larger;
+          padding: 5px 13px;
+          border-width: 0;
+        }
+
+        .print{
+          text-align: center;
+          cursor: pointer;
+        }
+
+      </style>
+ </head>
+<body>
+  <div class="container">
+    <div class="header container">
+      <div class="row">
+        <div class="col-3 d-flex flex-row-reverse">
+          <img src="/static/images/l1.png" alt="logo" class="logo"/>
+        </div>
+        <div class="col-9">
+          <div class="title">Dhanam Rice Merchant</div>
+          <p class="address">
+            Address: Valaiyapathi Complex, Near Bus Stand, Kurinjipadi - 607302
+          </p>
+          <p class="contact">
+            contact: 99421 65111, 98423 34350, 9500275111
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="container justify-content-center my-3">
+      <div class="row">
+        <div class="col-12 col-sm-6">
+          <span>Customer Name : </span>
+          <span class="cus_info"> &nbsp; {{data.customer_name}}</span>
+        </div>
+        <div class="col-12 col-sm-6">
+          <span>Customer Number : </span>
+          <span class="cus_info"> &nbsp; {{data.customer_number}}</span>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="product_table container my-4">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">Product Name</th>
+            <th scope="col">Product Size</th>
+            <th scope="col">Number Of Items</th>
+            <th scope="col">Product Cost</th>
+          </tr>
+        </thead>
+        <tbody>
+          {% for li in data.products %}
+          <tr>
+            <th scope="row">{{li.product_name}}</th>
+            <td>{{li.product_number}}</td>
+            <td>{{li.product_size}}</td>
+            <td>{{li.product_cost}}</td>
+          </tr>
+          {% endfor %}
+          
+          <tr>
+            <td></td>
+            <td>Total number of items </td>
+            <td class="text-center">:</td>
+            <td>{{data.total_number_of_product}}</td>
+          </tr>
+          <tr>
+            <td></td>
+            <td>Total Cost </td>
+            <td class="text-center">:</td>
+            <td>{{data.total_cost}}</td>
+          </tr>
+        
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <div class="print mt-5" id="print">
+    <div class="btn btn-primary">Save</div>
+  </div>
+  <script> 
+    document.getElementById("print").addEventListener("click",function(){
+      window.print()
+    })
+  </script>
+</body>

@@ -1,0 +1,158 @@
+{% load static%}
+<head>
+    <link href="{% static 'bootstrap/dist/css/bootstrap.min.css' %}" rel="stylesheet" >
+    <link href="{% static 'bootstrap/dist/js/bootstrap.min.js' %}" rel="stylesheet" >
+    <style>
+        .admin_login{
+            position: relative;
+            margin: 0px;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+        }
+
+        .admin_login .img {
+            margin: 0px;
+        }
+
+        .admin_login .img img{
+            position: absolute;
+            width:100%;
+            z-index: -1;
+            height:100%;
+        }
+       
+        .admin_form{
+            position: absolute;
+            top:25%;
+            left: 65%;
+        }
+
+        .admin_form{
+            background-color: rgba(255, 255, 255, 0.411);
+            border: 2px rgb(189, 185, 185) solid;
+            box-shadow: 2px 2px 2px 2px rgb(189, 185, 185);
+        } 
+
+        .admin_form h1{
+            padding-top: 5px;
+            margin-bottom: 35px;
+            font-size: 30px;
+            font-weight: 900;
+            text-align: center;
+            color: black;
+        }
+
+        .admin_form .form-label{
+            margin-left: 25%;
+            font-size: large;
+            color: rgb(14, 12, 12);
+            font-weight: 700;
+        }
+
+        .admin_form .form-control{
+            margin-left: 25%;
+            width: 270px;
+        }
+
+        .admin_form button{
+            margin-top: 6px;
+            margin-left: 40%;
+        }
+        
+
+        @media (min-width:480px){
+            .admin_form{
+                margin-left: -10%;
+            }
+        }
+
+        @media (min-width:600px){
+            .admin_form{
+                margin-left: -6%;
+            }
+        }
+
+        @media (min-width:700px){
+            .admin_form{
+                margin-left: -4%;
+            }
+        }
+
+        
+        @media (min-width:800px){
+            .admin_form{
+                margin-left: 10%;
+            }
+        }
+
+        @media (min-width:900px){
+            .admin_form{
+                margin-left: 37%;
+            }
+        }
+
+        @media screen and (max-width:780px) {       
+            .admin_form{
+                position: absolute;
+                top:25%;
+                left: 45%;
+            }   
+        }
+
+        @media screen and (max-width:600px) {       
+            .admin_form{
+                position: absolute;
+                top:25%;
+                left: 35%;
+                height: 100px;
+            }   
+        }
+
+        @media screen and (min-width:200px) {       
+            
+            .admin_form h1{
+                margin-top: 55px;
+            }
+            
+            .admin_form{
+                margin-top:-40px;
+                position: absolute;
+                top:25%;
+                padding-top: 2px;
+                padding-bottom:15px;
+                left: 10%;
+                width: 510px;
+                height: 400px;
+            }   
+        }
+    </style>
+</head>
+
+
+
+<div class="admin_login">
+    <div class="img"><img src="/static/images/login.jpg" alt="login image" class=""></div>
+
+    <!-- <div class="row "> -->
+        <!-- <div class="col-10 col-sm-6"></div> -->
+        <div class=" admin_form">
+            <h1>Admin-login</h1>
+            
+                        <div>
+                            <div class="mb-3">
+                            <label for="exampleInputEmail1" class="form-label">Feedback details</label>
+                             </div>
+                            <div class="mb-3">
+                            <label for="exampleInputPassword1" class="form-label" >Order details</label>
+                           </div>
+                            <div>
+                                <form action="login/" method="get">
+                                    <button type="submit" class="btn btn-primary">Go to Login page</button>
+                                </form>
+                            </div>
+                        </div>
+        </div>    
+    </div>
+</div>
+

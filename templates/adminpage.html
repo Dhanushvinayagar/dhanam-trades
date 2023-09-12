@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin page</title>
+    <style>
+
+        *{
+            text-align: center;
+            padding-top: 1%;
+        }
+
+        body{
+            background-image: linear-gradient(180deg, rgb(247, 188, 111), rgb(247, 188, 111));
+        }
+
+        h1{
+            color: rgb(248, 4, 53);
+            font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            
+
+        }
+       
+        .login-page{
+            padding:1px;
+        }
+        .logout{
+            padding-left: 80%;
+            padding-top: 1%;
+            
+        }
+        .logout-btn{
+            padding-bottom:3%;
+            border-radius: 5px;
+            padding-left: 4%;
+            padding-right: 4%;
+            padding-top: 4%;
+            background-color: rgb(84, 84, 222);
+            text-align: center;
+            color: aliceblue;
+            font-size: larger;
+
+            box-shadow: 2px 2px 2px  rgb(95, 95, 188);
+        }
+       
+          
+
+        .admin-pg{
+            background-color: #4d4dff;
+            border-radius: 5px;
+            color: rgb(47, 16, 16);
+            padding-bottom: 2%;
+            padding-top: 2%;
+            padding-left: 5.5%;
+            padding-right:5.5%;
+
+            font-size: x-large;
+            box-shadow: 2px 2px 2px 2px  rgb(59, 23, 23);
+        }
+        .feed-btn{
+            background-color: rgb(116, 255, 255);
+            border-radius: 5px;
+            color: rgb(47, 16, 16);
+            padding-bottom: 2%;
+            padding-top: 2%;
+            padding-left: 6%;
+            padding-right:6%;
+
+            font-size: x-large;
+            box-shadow: 2px 2px 2px 2px  rgb(59, 23, 23);
+        }
+        .order-btn{
+            text-align: center;
+            background-color: rgb(116, 255, 255);
+            border-radius: 5px;
+            color: rgb(47, 16, 16);
+            font-size: x-large;
+            padding-bottom: 2%;
+            padding-top: 2%;
+            padding-left: 8%;
+            padding-right:8%;
+            box-shadow: 2px 2px 2px 2px  rgb(47, 18, 18);
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-page">
+    <h1>Admin User Records</h1>
+    <div class="logout">
+        <form action="logout/" method="POST">
+        {% csrf_token %}
+        <button  class="logout-btn" type="submit">Logout</button></a>
+        </form>
+        <br>
+    </div>
+    <br>
+    <div class="admin-page">
+        <a href="/admin"><button class="admin-pg">Admin Dashboard </button></a><br>
+    </div>
+    <div class="feedback">
+        <a href="/feedback-details"><button class="feed-btn">Feedback details </button></a><br>
+    </div>
+    <div class="order-det">
+        <a href="/order-details"><button class="order-btn">Order details</button></a>
+    </div>
+</div>
+</body>
+</html>
