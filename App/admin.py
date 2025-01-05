@@ -9,7 +9,7 @@ admin.site.index_title="Dhanam Merchant"
 admin.site.register(Design)
 
 class ProductAdmin(admin.ModelAdmin):
-    list_display = ('product_name','product_brand','product_description','product_image','trending_product','product_kg','product_cost')
+    list_display = ('product_name','product_brand','product_description','product_image','trending_product','product_kg','product_cost','quantity')
     # list_filter =['trending_product'] 
     search_fields = ['product_name']
 admin.site.register(Product,ProductAdmin)

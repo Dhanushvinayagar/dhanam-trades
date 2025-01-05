@@ -18,7 +18,7 @@ class Product(models.Model):
     trending_product=models.BooleanField(default=False)
     product_kg=models.IntegerField(null=True,blank=True,default=0)
     product_cost=models.IntegerField(null=True,blank=True,default=0)
-     
+    quantity = models.IntegerField(default=0)
     
 
 class Order(models.Model):

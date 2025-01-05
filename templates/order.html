@@ -155,5 +155,10 @@
     document.getElementById("print").addEventListener("click",function(){
       window.print()
     })
+    
+    window.addEventListener("afterprint", function () {
+        // Redirect to the "product" page after the print dialog is closed (either print or cancel)
+        window.location.href = "http://localhost:8000/product";
+    });
   </script>
 </body>
