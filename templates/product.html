@@ -419,7 +419,7 @@
                         </div>
                         <div class="product_body p-3">
                                 <div class="product_title">
-                                    <h5>{{pro.product_name}}  ({{pro.product_name}})</h5>
+                                    <h5>{{pro.product_name}} ({{pro.product_name}})</h5>
                                 </div>
                                 <div class="discription px-2 mt-2">
                                     {{pro.product_description}}
@@ -429,7 +429,7 @@
                                     <div class="prize">Cost - &#8377; {{pro.product_cost}}</div>
                                 </div>
                                 <div class="add_cart">
-                                    <input type="number" class="number_package" value="1" min="1" pattern="" required>
+                                    <input type="number" class="number_package" value={{pro.quantity}} min="0" max={{pro.quantity}} pattern="" required>
                                     <button class="add btn btn-secondary add_to_cart">Add to cart</button>
                                 </div>
                         </div>
@@ -590,7 +590,8 @@
 
         
         cart_btn.addEventListener("click", async function(){
-            if(cus_name.value && cus_number){
+            
+            if(cus_name.value && cus_number.value.length==10){
                 if(added_product_list.length>0 ){
                     let total_cost=0
                     let total_number_of_product=0
@@ -615,7 +616,6 @@
                         "products": str
                     }
                     try{
-                        console.log(data);
                         
                         const response=await fetch("http://127.0.0.1:8000/product/ordersuccess/",{
                             method:"POST",
@@ -627,8 +627,10 @@
                         })
                        
                         const datas = await response.json()
-                        if(datas){
+                        if(datas.status==200){
                             window.location.assign(`http://localhost:8000/product/order/${datas.id}`)
+                        }else{
+                            alert(datas.error)
                         }
                     }catch(error){
                         alert("Something went wrong.Please try again...")
